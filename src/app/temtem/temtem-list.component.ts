@@ -13,7 +13,7 @@ export class TemtemListComponent implements OnInit {
   portraitWidth: number = 50;
   portraitMargin: number = 2;
   sub!: Subscription;
-  private _listFilter: string = '';
+  private _listFilter: string = 'mimit';
   get listFilter(): string {
     return this._listFilter;
   }
@@ -3279,5 +3279,7 @@ export class TemtemListComponent implements OnInit {
       temTem.name.toLocaleLowerCase().includes(filterBy)
     );
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.listFilter = 'temtem';
+  }
 }
