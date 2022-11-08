@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
       { path: 'temtems', component: TemtemListComponent },
       { path: 'temtems/:number', component: TemtemDetailComponent },
       { path: 'items', component: ItemListComponent },
+      { path: '', redirectTo: 'temtems', pathMatch: 'full' }
     ]),
   ],
   providers: [],

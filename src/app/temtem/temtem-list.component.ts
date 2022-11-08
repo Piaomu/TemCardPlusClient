@@ -4,7 +4,6 @@ import { ITemTem } from './ITemTem';
 import { TemtemService } from './temtem.service.service';
 
 @Component({
-  selector: 'temtem-list',
   templateUrl: './temtem-list.component.html',
   styleUrls: ['./temtem-list.component.css'],
 })
