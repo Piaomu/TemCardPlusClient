@@ -30,7 +30,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let temTem of filteredTemTems">
+      <tr
+        [routerLink]="['/temtems', temTem.number]"
+        *ngFor="let temTem of filteredTemTems"
+      >
         <td scope="row">
           <img
             [src]="temTem.portraitWikiUrl"

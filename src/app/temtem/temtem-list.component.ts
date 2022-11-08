@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ITemTem } from './ITemTem';
 import { TemtemService } from './temtem.service.service';
@@ -8,7 +8,7 @@ import { TemtemService } from './temtem.service.service';
   templateUrl: './temtem-list.component.html',
   styleUrls: ['./temtem-list.component.css'],
 })
-export class TemtemListComponent implements OnInit {
+export class TemtemListComponent implements OnInit, OnDestroy {
   constructor(private temtemService: TemtemService) {}
   pageTitle = 'TemTem';
   portraitWidth: number = 50;
@@ -42,5 +42,9 @@ export class TemtemListComponent implements OnInit {
       },
     });
     this.listFilter = 'temtem';
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 }
