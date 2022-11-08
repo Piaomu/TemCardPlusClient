@@ -24,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
       { path: 'temtems', component: TemtemListComponent },
       { path: 'temtems/:number', component: TemtemDetailComponent },
       { path: 'items', component: ItemListComponent },
-      { path: '', redirectTo: 'temtems', pathMatch: 'full' }
+      { path: '', redirectTo: 'temtems', pathMatch: 'full' }, // sets the default path to temtem-list (first page routes to this)
+      { path: '**', redirectTo: 'temtems', pathMatch: 'full'} // wild-card path--usually used to handle 404s and the like
     ]),
   ],
   providers: [],
