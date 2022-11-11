@@ -1,3 +1,4 @@
+<!-- Display as table on screens larger than tablet -->
 <div class="row">
   <div class="h1" style="text-align: center">TemTem</div>
   <hr />
@@ -6,7 +7,7 @@
     <input type="text" [(ngModel)]="listFilter" style="margin-bottom: 0.5em" />
   </div>
 </div>
-<div class="table-responsive">
+<div class="table-responsive d-none d-lg-block">
   <table
     class="table table-hover table-dark table-striped table-bordered"
     *ngIf="temTems.length"
@@ -58,4 +59,28 @@
       </tr>
     </tbody>
   </table>
+</div>
+<div class="d-lg-none">
+  <div
+    class="card-deck"
+    [routerLink]="['/temtems', temTem.number]"
+    *ngFor="let temTem of filteredTemTems"
+  >
+    <div
+      class="card bg-dark"
+      style="margin-top: 0.25em; margin-bottom: 0.25em; height: 20em"
+    >
+      <img
+        class="card-img-top card-img-overlay"
+        [src]="temTem?.wikiRenderStaticUrl"
+        [style.margin.px]="portraitMargin"
+        style="top: 10px; left: 15%"
+      />
+      <div class="card-body">
+        <h1 class="card-title">{{ temTem.name }}</h1>
+        <p class="card-text">{{ temTem.traits[0].name }}</p>
+        <p class="card-text">{{ temTem.traits[1].name }}</p>
+      </div>
+    </div>
+  </div>
 </div>
